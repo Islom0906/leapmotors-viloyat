@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+  * {
+      font-family: Arial, Helvetica, sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #898989 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #898989;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+
+
+html{
+   scroll-snap-type: y mandatory;
+} 
+
+.section .scroll-snap,.footer{
+    scroll-snap-align: center;
+}
+
+
+/*map*/
+
+.App {
+    height: 100vh;
+    width: 100vw;
+}
+
+.map-container {
+    height: 100%;
+    width: 100%;
+}
+
+.gm-ui-hover-effect{
+    right: -2px !important;
+    top: -2px !important;
+}
+
+
+/*3dots*/
+.three-line-dots {
+    overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+/*backdrop_filter*/
+.backdrop_filter{
+    background: rgba( 0, 0, 0, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+/*swiper*/
+
+.swiper-button-prev {
+  left: 30px !important;
+
+}
+
+.swiper-button-prev::after{
+    padding: 20px 23px;
+  font-size: 13px !important;
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white !important;
+}
+
+.swiper-button-next {
+  right: 30px !important;
+  
+}
+
+.swiper-button-next::after{
+  padding: 20px 23px;
+  font-size: 13px !important;
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white !important;
+}
+@media (max-width: 500px) {
+  .swiper-button-next {
+    display: none !important;
+  }
+
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
+ .swiper-pagination-bullet {
+  width: 20px !important;
+  height: 5px !important;
+  border-radius: 0 !important;
+  background-color: #e4e4e4 !important;
+  opacity: 1 !important;
+  transition: all .5s ease;
+
+}
+ .swiper-pagination-bullet-active {
+  width: 40px !important;
+  transition: all .5s ease;
+  background-color: black !important;
+}
+ .swiper-button-prev, .swiper-button-next{
+  color: #ffffff !important;
+}
+
+.drive-card {
+  background: rgba( 255, 255, 255, 0.6 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 12px );
+  -webkit-backdrop-filter: blur( 12px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
