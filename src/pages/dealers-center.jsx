@@ -7,12 +7,12 @@ const DealersCenter = ({filial,filialInner,map}) => {
     const {lang}=useSelector(state => state.lang)
     return (
         <>
-        <SEO title={'Leapmotorca Dealers Center'} og_title={'Leapmotorca uz DealersCenter, Leapmotor uzbekistan DealersCenter,Leapmotorca DealersCenter'}
-        keywords={'DealersCenter , Leapmotors ,Dealers-Center , DealersCenter , Leapmotorca uz, Leapmotors uz, Leapmotorauto uz'}  description={'Мы являемся ведущей компанией по производству интеллектуальных электромобилей, которая стремится предоставить всем потребителям наилучшие возможности инновационной мобильности'}
-        >
-            
-        </SEO>
-         
+            <SEO title={'Leapmotorca Dealers Center'} og_title={'Leapmotorca uz DealersCenter, Leapmotor uzbekistan DealersCenter,Leapmotorca DealersCenter'}
+                 keywords={'DealersCenter , Leapmotors ,Dealers-Center , DealersCenter , Leapmotorca uz, Leapmotors uz, Leapmotorauto uz'}  description={'Мы являемся ведущей компанией по производству интеллектуальных электромобилей, которая стремится предоставить всем потребителям наилучшие возможности инновационной мобильности'}
+            >
+
+            </SEO>
+
             <div className={'bg-black store'}>
                 <div className={'h-auto md:min-h-screen w-full relative bg-[#f5f5f5] '}>
                     <GoogleMap mapData={map}/>
@@ -21,7 +21,7 @@ const DealersCenter = ({filial,filialInner,map}) => {
                     <div className="grid w-full h-full gap-4 overflow-x-hidden overflow-y-hidden lg:grid-cols-2">
                         {
                             filial?.map(item=>(
-                        <StoreBox key={item?._id} text={lang==='ru' ? item?.titleRu: item?.titleUz} bg={`${process.env.NEXT_PUBLIC_API_URL}/${item?.image?.path}`}/>
+                                <StoreBox key={item?._id} text={lang==='ru' ? item?.titleRu: item?.titleUz} bg={`${process.env.NEXT_PUBLIC_API_URL}/${item?.image?.path}`}/>
 
                             ))
                         }

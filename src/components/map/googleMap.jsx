@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import {GoogleMap, InfoWindowF, MarkerF, useLoadScript} from "@react-google-maps/api";
 
 import {RiMapPinLine, RiPhoneLine, RiTimeLine} from "react-icons/ri";
+import {IoEarthOutline} from "react-icons/io5";
 
 const GoogleMaps = ({mapData}) => {
     const {isLoaded} = useLoadScript({
@@ -12,23 +13,23 @@ const GoogleMaps = ({mapData}) => {
     const [infoWindowData, setInfoWindowData] = useState();
     const onLoad = (map) => {
         setMapRef(map)
-        if (mapData.length===1){
+        // if (mapData.length===1){
         map.setCenter({lat:41.337380,lng:64.478760})
         map.setZoom(7)
 
-        }else {
-        const bounds = new google.maps.LatLngBounds();
-            mapData?.forEach(({lat, lng}) => bounds.extend({lat:Number(lat), lng:Number(lng)}));
-        map.fitBounds(bounds);
-
-        }
+        // }else {
+        // const bounds = new google.maps.LatLngBounds();
+        //     mapData?.forEach(({lat, lng}) => bounds.extend({lat:Number(lat), lng:Number(lng)}));
+        // map.fitBounds(bounds);
+        //
+        // }
     };
 
 
 
-    const handleMarkerClick = (id, lat, lng, addressRu, addressUz, nameRu, nameUz, workingTime, tel) => {
+    const handleMarkerClick = (id, lat, lng, addressRu, addressUz, nameRu, nameUz, workingTime, tel,link) => {
         mapRef?.panTo({lat, lng})
-        setInfoWindowData({id, addressRu, addressUz, nameRu, nameUz, workingTime, tel})
+        setInfoWindowData({id, addressRu, addressUz, nameRu, nameUz, workingTime, tel,link})
         setIsOpen(true)
     }
 
@@ -43,7 +44,7 @@ const GoogleMaps = ({mapData}) => {
                         <div
                             className={'space-y-2 sm:space-y-3 px-4 py-2 sm:px-7 sm:py-5 cursor-pointer bg-white rounded-lg md:rounded-none w-full'}
                             key={ind}
-                        onClick={()=>handleMarkerClick(ind,Number(item.lat), Number(item.lng), item.addressRu, item.addressUz, item.nameRu, item.nameUz, item.workingTime, item.tel)}>
+                            onClick={()=>handleMarkerClick(ind,Number(item.lat), Number(item.lng), item.addressRu, item.addressUz, item.nameRu, item.nameUz, item.workingTime, item.tel,item.link)}>
                             <h3 className={'text-xl'}>{item.nameRu}</h3>
                             <div className={'space-y-2'}>
                                 <div className={'flex items-start gap-3'}>
@@ -57,6 +58,10 @@ const GoogleMaps = ({mapData}) => {
                                 <div className={'flex items-start gap-3'}>
                                     <RiPhoneLine className={'text-lg flex-shrink-0'}/>
                                     <p className={'break-all text-[#666666]'}>{item.tel}</p>
+                                </div>
+                                <div className={'flex items-start gap-3'}>
+                                    <IoEarthOutline className={'text-lg flex-shrink-0'}/>
+                                    <a target={'_blank'} href={item.link} className={'break-all text-[#666666]'}>{item.link}</a>
                                 </div>
 
                             </div>
@@ -73,14 +78,14 @@ const GoogleMaps = ({mapData}) => {
                         onLoad={onLoad}
                         options={{mapId: '5d4e37b408dbedeb'}}
                     >
-                        {mapData.map(({lat, lng, addressRu, addressUz, nameRu, nameUz, workingTime, tel}, ind) => (
+                        {mapData.map(({lat, lng, addressRu, addressUz, nameRu, nameUz, workingTime, tel,link}, ind) => (
                             <MarkerF position={{lat:Number(lat), lng:Number(lng)}} key={ind}
                                      icon={{
                                          url: '/store-checked.png',
                                          scaledSize: new window.google.maps.Size(45, 50),
                                      }}
                                      onClick={() => {
-                                         handleMarkerClick(ind, Number(lat), Number(lng), addressRu, addressUz, nameRu, nameUz, workingTime, tel)
+                                         handleMarkerClick(ind, Number(lat), Number(lng), addressRu, addressUz, nameRu, nameUz, workingTime, tel,link)
                                      }}
                             >
                                 {
@@ -100,6 +105,10 @@ const GoogleMaps = ({mapData}) => {
                                                     <div className={'flex items-start gap-3'}>
                                                         <RiPhoneLine className={'text-lg flex-shrink-0'}/>
                                                         <p className={'break-all text-[#666666]'}>{infoWindowData.tel}</p>
+                                                    </div>
+                                                    <div className={'flex items-start gap-3'}>
+                                                        <IoEarthOutline className={'text-lg flex-shrink-0'}/>
+                                                        <a target={'_blank'} href={infoWindowData.link} className={'break-all text-[#666666]'}>{infoWindowData.link}</a>
                                                     </div>
                                                 </div>
                                             </div>
