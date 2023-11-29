@@ -40,14 +40,14 @@ const CarDetailBanner = ({ bgRes ,  bg, img, text, title ,imgLong ,model}) => {
             model &&
             <div className="flex items-center justify-center mt-5 space-x-2">
               
-          <Link
+          <a
 
-              href="/drive"
+              href="https://leapmotorca.uz/drive"
               onClick={()=>dispatch(checkCarModel(model))}
               className="text-white text-lg bg-transparent border border-white w-auto px-2 md:px-0 md:w-[185px] flex  justify-center py-1 hover:text-[#4f5f81] hover:bg-white transition-all ease duration-500"
           >
             {t('navbar.testDrive')}
-          </Link>
+          </a>
                  {/*    <Link*/}
 
                  {/*    href="/car-sale"*/}
