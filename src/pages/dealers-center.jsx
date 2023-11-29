@@ -55,7 +55,7 @@ export async function getServerSideProps({req, res}) {
     const [filial, filialInner,map] = await Promise.all([
         axios.get(`${process.env.NEXT_PUBLIC_API_URL}/filial`),
         axios.get(`${process.env.NEXT_PUBLIC_API_URL}/filialInner`),
-        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/map`),
+        axios.get(`${process.env.NEXT_PUBLIC_TASH_API_URL}/map`),
     ])
 
     // Pass data to the page via props
