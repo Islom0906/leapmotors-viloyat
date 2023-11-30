@@ -39,9 +39,9 @@ const Footer = () => {
                   {/*</li>*/}
                 </ul>
                 <ul className="flex flex-col items-center md:items-end lg:items-start gap-2 text-base text-[#898989] font-bold ">
-                  <li className={'flex justify-center'}>
-                    <Link className="text-center md:text-start"  href="/dealers">{t("navbar.dealers")}</Link>
-                  </li>
+                  {/*<li className={'flex justify-center'}>*/}
+                  {/*  <Link className="text-center md:text-start"  href="/dealers">{t("navbar.dealers")}</Link>*/}
+                  {/*</li>*/}
                   <li className={'flex justify-center'}>
                     <Link className="text-center md:text-start"  href="#">{t("navbar.service")}</Link>
                   </li>
