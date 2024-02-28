@@ -5,7 +5,8 @@ import section1image2 from '/public/about us section 1 image2.jpg'
 import {AboutTeam, HoverCard} from "@/components";
 import axios from "axios";
 import {useSelector} from "react-redux";
-import SEO from 'src/layout/seo/seo';
+import SEO from "@/SEO/SEO";
+import {aboutUsSEO} from "@/SEO/SEOconfig";
 
 SwiperCore.use([Autoplay]);
 
@@ -13,7 +14,7 @@ export default function About({about}) {
     const {lang} = useSelector(state => state.lang)
     return (
         <>
-        <SEO  title={'Leapotorca About'}  og_title={'Leapotorca About'}  keywords={'Leapotorca About , Leapmotors About, Leapmotorauto About , Leapmotorca uz, Leapmotors uz, Leapmotorauto uz , leap haqida'}  description={'Мы являемся ведущей компанией по производству интеллектуальных электромобилей, которая стремится предоставить всем потребителям наилучшие возможности инновационной мобильности'} >
+            <SEO title={aboutUsSEO[lang].title} description={aboutUsSEO[lang].description} ogTitle={aboutUsSEO[lang].ogTitle} ogDescription={aboutUsSEO[lang].ogDescription} />
         <main className={'bg-black'}>
                 {/*section banner*/}
                 <section className="w-full h-screen relative  bg-[#000]">
@@ -105,10 +106,6 @@ export default function About({about}) {
                     </div>
                 </section>
             </main>
-        </SEO>
-            
-            
-
         </>
     )
 }

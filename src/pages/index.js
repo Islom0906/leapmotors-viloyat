@@ -1,11 +1,11 @@
 import AOS from "aos";
 import { useEffect, useState } from "react";
-
+import SEO from '@/SEO/SEO';
+import {index} from '@/SEO/SEOconfig'
 import Image from "next/image";
 import { BannerImage } from "@/components";
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 import axios from "axios";
-import SEO from 'src/layout/seo/seo';
 import { useSelector } from "react-redux";
 
 export default function Home({ banner, products }) {
@@ -42,7 +42,7 @@ export default function Home({ banner, products }) {
 
   return (
     <>
-      <SEO  title={'Leapmotorca'}  og_title={'Leapmotorca , Leapmotorca Home, leapmotorca home'}  keywords={'Leapmotorca , Leapmotors , Leapmotorauto , Leapmotorca uz, Leapmotors uz, Leapmotorauto uz'}  description={'Мы являемся ведущей компанией по производству интеллектуальных электромобилей, которая стремится предоставить всем потребителям наилучшие возможности инновационной мобильности'} >
+      <SEO title={index[lang].title} description={index[lang].description} ogTitle={index[lang].ogTitle} ogDescription={index[lang].ogDescription} />
         <main className={"bg-black section"}>
           <section className="relative w-full h-screen scroll-snap">
             <video className="object-cover w-full h-full" autoPlay loop muted>
@@ -98,7 +98,6 @@ export default function Home({ banner, products }) {
             />
           ))}
         </main>
-      </SEO>
     </>
   );
 }

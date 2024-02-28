@@ -2,16 +2,14 @@ import {GoogleMap, StoreBox} from "@/components";
 import axios from "axios";
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 import {useSelector} from "react-redux";
-import SEO from 'src/layout/seo/seo';
+import SEO from "@/SEO/SEO";
+import {dealerCenterSEO} from "@/SEO/SEOconfig";
 const DealersCenter = ({filial,filialInner,map}) => {
     const {lang}=useSelector(state => state.lang)
     return (
         <>
-            <SEO title={'Leapmotorca Dealers Center'} og_title={'Leapmotorca uz DealersCenter, Leapmotor uzbekistan DealersCenter,Leapmotorca DealersCenter'}
-                 keywords={'DealersCenter , Leapmotors ,Dealers-Center , DealersCenter , Leapmotorca uz, Leapmotors uz, Leapmotorauto uz'}  description={'Мы являемся ведущей компанией по производству интеллектуальных электромобилей, которая стремится предоставить всем потребителям наилучшие возможности инновационной мобильности'}
-            >
+            <SEO title={dealerCenterSEO[lang].title} description={dealerCenterSEO[lang].description} ogTitle={dealerCenterSEO[lang].ogTitle} ogDescription={dealerCenterSEO[lang].ogDescription} />
 
-            </SEO>
 
             <div className={'bg-black store'}>
                 <div className={'h-auto md:min-h-screen w-full relative bg-[#f5f5f5] '}>

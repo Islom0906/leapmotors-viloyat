@@ -8,11 +8,14 @@ import {useForm} from "react-hook-form";
 import {LuLoader2} from "react-icons/lu";
 import ModalSuccess from "@/components/modal-success/modal-success";
 import InputMask from 'react-input-mask';
-import SEO from 'src/layout/seo/seo';
+import SEO from '@/SEO/SEO';
+import {driveSEO} from "@/SEO/SEOconfig";
 
 import {useSelector} from "react-redux";
 
 const Drive = () => {
+    const {lang}=useSelector(state => state.lang)
+
     const {model} = useSelector(state => state.drive)
     const {register, handleSubmit, reset, formState: {errors}} = useForm()
     const {
@@ -83,8 +86,7 @@ const Drive = () => {
 
 
     return (<>
-            <SEO title={'Leapmotorca Test-drive'}  og_title={'Leapmotorca  Test-drive, Leapmotorca Test-drive, leapmotorca Test-drive'}  keywords={'Test-drive , drive car , Leapmotors , Leapmotorauto , Leapmotorca uz, Leapmotors uz, Leapmotorauto uz'}  description={'Мы являемся ведущей компанией по производству интеллектуальных электромобилей, которая стремится предоставить всем потребителям наилучшие возможности инновационной мобильности'}>
-                
+            <SEO title={driveSEO[lang].title} description={driveSEO[lang].description} ogTitle={driveSEO[lang].ogTitle} ogDescription={driveSEO[lang].ogDescription} />
             <section className="relative min-h-screen bg-black">
                 <Image
                     src={`${process.env.NEXT_PUBLIC_API_URL}/${bg?.imageBanner?.path}`}
@@ -306,7 +308,6 @@ const Drive = () => {
                     <ModalSuccess text={'Ваша заявка принята'}/>
                 </div>
             </section>
-            </SEO>
         </>
 
     );
