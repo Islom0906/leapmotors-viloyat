@@ -1,13 +1,12 @@
 import Image from "next/image";
 import {PiCaretDownBold} from "react-icons/pi";
 import {CarSwiper, CarText, CarBanner, HoverCard} from "@/components";
-import SEO from 'src/layout/seo/seo';
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 import {useTranslation} from "react-i18next";
 import {checkCarModel} from "@/slice/testDrive";
-import {setCarModal} from "@/slice/sale";
-import Link from "next/link";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {T03SEO} from "@/SEO/SEOconfig";
+import SEO from "@/SEO/SEO";
 
 
 const carSwipper3 = [
@@ -27,6 +26,8 @@ const carSwipper3 = [
 
 const T03 = () => {
     const {t} = useTranslation()
+    const {lang}=useSelector(state => state.lang)
+
     const dispatch = useDispatch()
     const T03Data = {
         logo: `${process.env.NEXT_PUBLIC_API_URL}/media/9f538f2a-68ba-4199-97b0-05937e96bcbd-section-4-logo.png`,
@@ -120,11 +121,11 @@ const T03 = () => {
 
     return (
         <>
-            <SEO title={'T03'} og_title={'T03 '}
-                 keywords={'T03 , mini-car, Leapmotors , Leapmotorauto , Leapmotorca uz, Leapmotors uz, Leapmotorauto uz'}
-                 description={'Мы являемся ведущей компанией по производству интеллектуальных электромобилей, которая стремится предоставить всем потребителям наилучшие возможности инновационной мобильности'}>
 
-                <main className={'bg-black'}>
+            <SEO title={T03SEO[lang].title} description={T03SEO[lang].description} ogTitle={T03SEO[lang].ogTitle} ogDescription={T03SEO[lang].ogDescription} />
+
+
+            <main className={'bg-black'}>
                     <section className="h-screen ">
                         <div className="relative w-full h-full">
                             <Image
@@ -309,7 +310,6 @@ const T03 = () => {
                     <CarText content={disclaimers}/>
 
                 </main>
-            </SEO>
         </>
 
     );

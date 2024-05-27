@@ -12,8 +12,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import  { Pagination, Navigation } from "swiper";
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 import { useTranslation } from "react-i18next";
-import SEO from 'src/layout/seo/seo';
+import SEO from "@/SEO/SEO";
+import {C11REEVSEO} from "@/SEO/SEOconfig";
+import {useSelector} from "react-redux";
 const C11Reev = () => {
+  const {lang} = useSelector(state => state.lang)
+
   const { t } = useTranslation();
   const disclaimers = [
     t("c11reev.c11rev.name"),
@@ -199,8 +203,8 @@ const C11Reev = () => {
 
   return (
     <>
-      <SEO  title={'Leapotorca C11REEV'}  og_title={'Leapmotorca C11Reev'}  keywords={'C11REEV , Leapmotors , Leapmotorauto , Leapmotorca uz, Leapmotors uz, Leapmotorauto uz'}  description={'Мы являемся ведущей компанией по производству интеллектуальных электромобилей, которая стремится предоставить всем потребителям наилучшие возможности инновационной мобильности'} >
-        
+        <SEO title={C11REEVSEO[lang].title} description={C11REEVSEO[lang].description} ogTitle={C11REEVSEO[lang].ogTitle} ogDescription={C11REEVSEO[lang].ogDescription} />
+
       <main className={"bg-black"}>
         <CarDetailBanner
           imgLong={true}
@@ -422,8 +426,7 @@ const C11Reev = () => {
         </section>
         <CarText content={disclaimers} />
       </main>
-      </SEO>
-      
+
     </>
   );
 };
