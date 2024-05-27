@@ -3,7 +3,8 @@ import axios from "axios";
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 import {useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
-import SEO from 'src/layout/seo/seo';
+import SEO from "@/SEO/SEO";
+
 
 
 const news = ({news}) => {
