@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Autoplay, Navigation } from "swiper";
-import { CarSwiperInner } from "@/components";
+import {CarSwiperInner, CarSwiperInnerVideo} from "@/components";
 
 SwiperCore.use([Autoplay]);
 const CarSwiper = ({ content , textColor }) => {
@@ -22,23 +22,29 @@ const CarSwiper = ({ content , textColor }) => {
         pagination={true}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="h-screen mySwiper-team"
+        className="md:h-screen mySwiper-team"
       >
-        {
-            content?.map((item, ind) =>(
-                <SwiperSlide key={ind}>
-                    <div className={"relative w-full h-full swiper1"}>
-                        <CarSwiperInner
-                            bgResp={item.bgResp}
-                            textColor={textColor}
-                            title={item.title}
-                            subTitle={item.subTitle}
-                            bg={item.bg}
-                        />
-                    </div>
-                </SwiperSlide>
-            ) )
-        }
+          {
+              content?.map((item, ind) =>(
+                  <SwiperSlide key={ind}>
+                      <div className={"relative w-full h-full swiper1"}>
+                          {
+                              item.video ?
+                                  <CarSwiperInnerVideo content={item} video={item.video} />
+                                  :
+
+                                  <CarSwiperInner
+                                      bgResp={item.bgResp}
+                                      textColor={textColor}
+                                      title={item.title}
+                                      subTitle={item?.subTitle}
+                                      bg={item.bg}
+                                  />
+                          }
+                      </div>
+                  </SwiperSlide>
+              ) )
+          }
       </Swiper>
     </section>
   );

@@ -33,17 +33,20 @@ const Navbar = () => {
   useEffect(() => {
     const productSort = [];
     data?.data?.map((product) => {
-      if (product?.model === "T03") {
-        productSort[0] = product;
+      if (product?.model==='C10'){
+        productSort[0]=product
       }
-      if (product?.model === "C01") {
-        productSort[1] = product;
+      if (product?.model==='T03'){
+        productSort[1]=product
       }
-      if (product?.model === "C11") {
-        productSort[2] = product;
+      if (product?.model==='C01'){
+        productSort[2]=product
       }
-      if (product?.model === "C11Reev") {
-        productSort[3] = product;
+      if (product?.model==='C11'){
+        productSort[3]=product
+      }
+      if (product?.model==='C11Reev'){
+        productSort[4]=product
       }
     });
 
